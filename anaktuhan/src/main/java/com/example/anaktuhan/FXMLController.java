@@ -1,28 +1,39 @@
 package com.example.anaktuhan;
 
-import javafx.event.ActionEvent;
+import java.net.URL;
+import java.util.ResourceBundle;
+
+import com.example.anaktuhan.database.Database;
+import com.example.anaktuhan.modal.Verses;
+
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
-import javafx.scene.text.Text;
+import javafx.fxml.Initializable;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 
-public class FXMLController {
+import javafx.scene.control.cell.PropertyValueFactory;
 
-    private String textDisplay;
-
-    @FXML
-    private TextField textField;
+public class FXMLController implements Initializable {
 
     @FXML
-    private Button submitBut;
+    private TableView<Verses> tableVerses;
 
     @FXML
-    private Text text;
+    private TableColumn<Verses, Integer> verseIdCol;
 
     @FXML
-    void submit(ActionEvent event) {
-        textDisplay = textField.getText().trim();
-        text.setText(textDisplay);
+    private TableColumn<Verses, String> verseCol;
+
+    @FXML
+    private TableColumn<Verses, String> verseTextCol;
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        ObservableList<Verses> verses = Database.instance.getAllVerses();
+        verseIdCol.setCellValueFactory(new PropertyValueFactory<Verses, Integer>("verseId"));
+        verseCol.setCellValueFactory(new PropertyValueFactory<Verses, String>("verse"));
+        verseTextCol.setCellValueFactory(new PropertyValueFactory<Verses, String>("verseText"));
+        tableVerses.setItems(verses);
     }
-
 }
