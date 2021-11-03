@@ -9,6 +9,7 @@ import javafx.stage.Stage;
 
 /**
  * Hello world!
+ * gudbai dunia
  *
  */
 public class App extends Application
