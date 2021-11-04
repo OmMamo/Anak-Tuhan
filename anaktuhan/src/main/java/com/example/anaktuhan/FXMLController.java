@@ -32,6 +32,12 @@ public class FXMLController implements Initializable {
     private TableColumn<Verses, String> verseTextCol;
 
     @FXML
+    private TableColumn<Verses, String> eventsCol;
+
+    @FXML
+    private TableColumn<Verses, Integer> periodsCol;
+
+    @FXML
     private TextField fieldTime;
 
     @FXML
@@ -47,12 +53,15 @@ public class FXMLController implements Initializable {
     void submit(ActionEvent event) {
 
     }
+    
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         ObservableList<Verses> verses = Database.instance.getAllVerses();
         verseIdCol.setCellValueFactory(new PropertyValueFactory<Verses, Integer>("verseId"));
         verseCol.setCellValueFactory(new PropertyValueFactory<Verses, String>("verse"));
         verseTextCol.setCellValueFactory(new PropertyValueFactory<Verses, String>("verseText"));
+        eventsCol.setCellValueFactory(new PropertyValueFactory<Verses, String>("eventsDescribed"));
+        periodsCol.setCellValueFactory(new PropertyValueFactory<Verses, Integer>("yearNum"));
         tableVerses.setItems(verses);
     }
 }

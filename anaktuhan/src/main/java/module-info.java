@@ -3,7 +3,7 @@ module anaktuhan {
     requires javafx.fxml;
     requires transitive javafx.graphics;
     requires java.sql;
-  
+    requires sqlite.jdbc;
 
     opens com.example.anaktuhan to javafx.fxml;
     exports com.example.anaktuhan;

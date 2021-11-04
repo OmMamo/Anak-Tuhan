@@ -4,7 +4,9 @@ public class Verses {
     private int verseId;
     private String verse;
     private String verseText;
-
+    private String eventsDescribed;
+    private int yearNum;
+    
     public void setVerseId(int verseId) {
         this.verseId = verseId;
     }
@@ -17,6 +19,15 @@ public class Verses {
         this.verseText = verseText;
     }
 
+    public void setEventsDescribed(String eventsDescribed) {
+        this.eventsDescribed = eventsDescribed;
+    }
+
+    public void setYearNum(int yearNum) {
+        this.yearNum = yearNum;
+    }
+
+
     public int getVerseId() {
         return this.verseId;
     }
@@ -27,5 +38,13 @@ public class Verses {
 
     public String getVerseText() {
         return this.verseText;
+    }
+
+    public String getEventsDescribed() {
+        return eventsDescribed;
+    }
+
+    public int getYearNum() {
+        return yearNum;
     }
 }
