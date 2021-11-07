@@ -66,7 +66,7 @@ public class FXMLController implements Initializable {
         verseIdCol.setCellValueFactory(new PropertyValueFactory<Verses, Integer>("verseId"));
         verseCol.setCellValueFactory(new PropertyValueFactory<Verses, String>("verse"));
         verseTextCol.setCellValueFactory(new PropertyValueFactory<Verses, String>("verseText"));
-        eventsCol.setCellValueFactory(new PropertyValueFactory<Verses, String>("eventsDescribed"));
+        eventsCol.setCellValueFactory(new PropertyValueFactory<Verses, String>("title"));
         periodsCol.setCellValueFactory(new PropertyValueFactory<Verses, Integer>("yearNum"));
         tableVerses.setItems(verses);
 
@@ -78,7 +78,7 @@ public class FXMLController implements Initializable {
                         return true;            
                     }
                     String lowerCase=newValue.toLowerCase();
-                    if(verse.getEventsDescribed().toLowerCase().indexOf(lowerCase)!=-1){
+                    if(verse.getTitle().toLowerCase().indexOf(lowerCase)!=-1){
                         return true; 
                     }              
                     if(verse.getVerseText().toLowerCase().indexOf(lowerCase)!=-1){

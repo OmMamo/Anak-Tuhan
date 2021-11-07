@@ -4,7 +4,7 @@ public class Verses {
     private int verseId;
     private String verse;
     private String verseText;
-    private String eventsDescribed;
+    private String title;
     
     private int yearNum;
     
@@ -20,8 +20,8 @@ public class Verses {
         this.verseText = verseText;
     }
 
-    public void setEventsDescribed(String eventsDescribed) {
-        this.eventsDescribed = eventsDescribed;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
 
@@ -50,11 +50,11 @@ public class Verses {
         }   
     }
 
-    public String getEventsDescribed() {
-        if (this.eventsDescribed == null) {
+    public String getTitle() {
+        if (this.title == null) {
             return "";
         } else {
-            return this.eventsDescribed;  
+            return this.title;  
         }   
     }
 
