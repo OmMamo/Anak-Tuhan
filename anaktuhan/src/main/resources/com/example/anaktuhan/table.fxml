@@ -24,11 +24,8 @@
             <Font size="22.0" />
          </font>
       </Text>
-      <TextField fx:id="fieldTime" layoutX="145.0" layoutY="183.0" promptText="Cari" />
-      <Button fx:id="timeBut" layoutX="304.0" layoutY="183.0" mnemonicParsing="false" onAction="#submit" text="Cari" />
-      <Text layoutX="14.0" layoutY="201.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cari berdasar Waktu" />
-      <Text layoutX="14.0" layoutY="166.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cari berdasar Peristiwa" />
-      <TextField fx:id="fieldEvent" layoutX="145.0" layoutY="150.0" promptText="Cari" />
-      <Button fx:id="eventBut" layoutX="304.0" layoutY="150.0" mnemonicParsing="false" onAction="#submit" text="Cari" />
+      <Text layoutX="14.0" layoutY="207.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pencarian" />
+      <TextField fx:id="fieldEvent" layoutX="76.0" layoutY="191.0" promptText="Cari" />
+      <Button fx:id="eventBut" layoutX="236.0" layoutY="191.0" mnemonicParsing="false" onAction="#submit" text="Cari" />
    </children>
 </AnchorPane>

@@ -8,4 +8,5 @@ module anaktuhan {
     opens com.example.anaktuhan to javafx.fxml;
     exports com.example.anaktuhan;
     exports com.example.anaktuhan.modal;
+    exports com.example.anaktuhan.database;
 }

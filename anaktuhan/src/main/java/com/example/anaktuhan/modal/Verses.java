@@ -5,6 +5,7 @@ public class Verses {
     private String verse;
     private String verseText;
     private String eventsDescribed;
+    
     private int yearNum;
     
     public void setVerseId(int verseId) {
@@ -23,6 +24,7 @@ public class Verses {
         this.eventsDescribed = eventsDescribed;
     }
 
+
     public void setYearNum(int yearNum) {
         this.yearNum = yearNum;
     }
@@ -33,15 +35,27 @@ public class Verses {
     }
     
     public String getVerse() {
-        return this.verse;
+        if (this.verse == null) {
+            return "";
+        } else {
+            return this.verse; 
+        }   
     }
 
     public String getVerseText() {
-        return this.verseText;
+        if (this.verseText == null) {
+            return "";
+        } else {
+            return this.verseText;  
+        }   
     }
 
     public String getEventsDescribed() {
-        return eventsDescribed;
+        if (this.eventsDescribed == null) {
+            return "";
+        } else {
+            return this.eventsDescribed;  
+        }   
     }
 
     public int getYearNum() {

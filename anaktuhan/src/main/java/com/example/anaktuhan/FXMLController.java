@@ -6,7 +6,10 @@ import java.util.ResourceBundle;
 import com.example.anaktuhan.database.Database;
 import com.example.anaktuhan.modal.Verses;
 
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -14,10 +17,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.text.Text;
 
 import javafx.scene.control.cell.PropertyValueFactory;
 
 public class FXMLController implements Initializable {
+
+    private ObservableList<Verses> verses = FXCollections.observableArrayList();
 
     @FXML
     private TableView<Verses> tableVerses;
@@ -63,5 +69,35 @@ public class FXMLController implements Initializable {
         eventsCol.setCellValueFactory(new PropertyValueFactory<Verses, String>("eventsDescribed"));
         periodsCol.setCellValueFactory(new PropertyValueFactory<Verses, Integer>("yearNum"));
         tableVerses.setItems(verses);
-    }
+
+        FilteredList<Verses> filteredData= new FilteredList<>(verses,searching->true);
+
+        fieldEvent.textProperty().addListener((Observable, oldValue, newValue) -> {
+                filteredData.setPredicate(verse -> {
+                    if (newValue == null || newValue.isEmpty()) {
+                        return true;            
+                    }
+                    String lowerCase=newValue.toLowerCase();
+                    if(verse.getEventsDescribed().toLowerCase().indexOf(lowerCase)!=-1){
+                        return true; 
+                    }              
+                    if(verse.getVerseText().toLowerCase().indexOf(lowerCase)!=-1){
+                        return true; 
+                    }                
+                    if(verse.getVerse().toLowerCase().indexOf(lowerCase)!=-1){
+                        return true; 
+                    }
+                    else{
+                        return false;
+                    }
+                });
+            });  
+
+        SortedList<Verses> sortingData = new SortedList<>(filteredData);
+        sortingData.comparatorProperty().bind(tableVerses.comparatorProperty());
+        tableVerses.setItems(sortingData);
+
+        }
 }
+
+//reference : https://code.makery.ch/blog/javafx-8-tableview-sorting-filtering/

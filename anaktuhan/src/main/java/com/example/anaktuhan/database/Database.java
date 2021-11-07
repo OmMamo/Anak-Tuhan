@@ -45,4 +45,8 @@ public class Database {
         }
         return verses;
     }
+
+    public Connection opeConnection(Database Database){
+        return Database.connection;
+    }
 }
