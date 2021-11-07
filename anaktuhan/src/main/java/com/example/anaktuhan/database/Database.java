@@ -14,7 +14,6 @@ public class Database {
 
     final private String url ="jdbc:sqlite:vizbible.sqlite";
     final private String querySelect = "SELECT verses.verseId, verses.osisRef, verses.verseText, events.title, verses.yearNum FROM verses INNER JOIN events ON verses.verseID = events.verseSort";
-    ObservableList<Verses> verses = FXCollections.observableArrayList();
     private Connection connection = null;
     public static Database instance = new Database();
 
@@ -28,7 +27,7 @@ public class Database {
     }
     
     public ObservableList<Verses> getAllVerses() {
-        
+        ObservableList<Verses> verses = FXCollections.observableArrayList();
         try {
             Statement statement = connection.createStatement();
             ResultSet result = statement.executeQuery(querySelect);
