@@ -13,7 +13,7 @@ import javafx.collections.ObservableList;
 public class Database {
 
     final private String url ="jdbc:sqlite:vizbible.sqlite";
-    final private String querySelect = "SELECT verses.verseId, verses.osisRef, verses.verseText, events.title, verses.yearNum FROM verses INNER JOIN events ON verses.verseID = events.verseSort";
+    final private String querySelect = "SELECT verses.verseId, verses.osisRef, verses.verseText, events.title, verses.yearNum FROM verses LEFT JOIN events ON verses.verseID = events.verseSort";
     private Connection connection = null;
     public static Database instance = new Database();
 

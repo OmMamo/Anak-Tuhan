@@ -95,6 +95,27 @@ public class FXMLController implements Initializable {
         tableVerses.setItems(sortingData);
 
         }
+
+        // fieldTime.textProperty().addListener((Observable, oldValue, newValue) -> {
+        //     filteredData.setPredicate(verse -> {
+        //         if (newValue == 1 || newValue.isEmpty()) {
+        //             return true;            
+        //         }
+        //         Integer value = newValue();
+        //         if(verse.getYearNum().toLowerCase().indexOf(lowerCase)!=-1){
+        //             return true; 
+        //         }
+        //         else{
+        //             return false;
+        //         }
+        //     });
+        // });  
+
+        // SortedList<Verses> sortingData = new SortedList<>(filteredData);
+        // sortingData.comparatorProperty().bind(tableVerses.comparatorProperty());
+        // tableVerses.setItems(sortingData);
+
+        // }   
 }
 
 //reference : https://code.makery.ch/blog/javafx-8-tableview-sorting-filtering/
