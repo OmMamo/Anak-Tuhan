@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
+import com.example.anaktuhan.modal.Periods;
 import com.example.anaktuhan.modal.Verses;
 
 import javafx.collections.FXCollections;
@@ -14,6 +15,7 @@ public class Database {
 
     final private String url ="jdbc:sqlite:vizbible.sqlite";
     final private String querySelect = "SELECT verses.verseId, verses.osisRef, verses.verseText, events.title, periods.formattedYear FROM verses LEFT JOIN events ON verses.verseID = events.verseSort LEFT JOIN Periods ON verses.yearNum = Periods.yearNum";
+    final private String periodSelect = "SELECT formattedYear, events FROM Periods";
     private Connection connection = null;
     public static Database instance = new Database();
 
@@ -44,6 +46,23 @@ public class Database {
 
         }
         return verses;
+    }
+
+    public ObservableList<Periods> getAllPeriods() {
+        ObservableList<Periods> periods = FXCollections.observableArrayList();
+        try {
+            Statement statement = connection.createStatement();
+            ResultSet result = statement.executeQuery(querySelect);
+            while (result.next()) {
+                Periods period = new Periods();
+                period.setFormattedYear(result.getString("formattedYear"));
+                period.setEvents(result.getString("events"));
+                periods.add(period);
+            }
+        } catch (Exception e) {
+
+        }
+        return periods;
     }
 
     public Connection opeConnection(Database Database){

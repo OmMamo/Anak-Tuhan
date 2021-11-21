@@ -1,10 +1,14 @@
 package com.example.anaktuhan;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.Stack;
 
 import com.example.anaktuhan.database.Database;
 import com.example.anaktuhan.modal.Verses;
+import com.example.anaktuhan.modal.Periods;
+
 
 import javafx.beans.property.IntegerProperty;
 import javafx.collections.ObservableList;
@@ -12,7 +16,11 @@ import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TableColumn;
@@ -20,6 +28,7 @@ import javafx.scene.control.TableView;
 
 
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 
 public class FXMLController implements Initializable {
 
@@ -49,7 +58,21 @@ public class FXMLController implements Initializable {
     private Button eventBut;
 
     @FXML
+    private Button timeLine;
+
+    @FXML
     void submit(ActionEvent event) {
+
+    }
+
+    @FXML
+    void toTimeline(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("graph.fxml"));
+        Scene scene = new Scene(root);
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+
+        window.setScene(scene);
+        window.show();
 
     }
     

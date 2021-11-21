@@ -5,7 +5,6 @@ public class Verses {
     private String verse;
     private String verseText;
     private String title;
-    
     private String formattedYear;
     
     public void setVerseId(int verseId) {

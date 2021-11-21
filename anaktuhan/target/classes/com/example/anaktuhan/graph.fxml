@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="546.0" prefWidth="768.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <BarChart fx:id="BarChart" layoutX="50.0" layoutY="77.0" prefHeight="391.0" prefWidth="667.0" title="Timeline">
+        <xAxis>
+          <CategoryAxis fx:id="y" label="EVENTS" side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis label="YEAR" side="LEFT" fx:id="x" />
+        </yAxis>
+      </BarChart>
+   </children>
+</AnchorPane>
