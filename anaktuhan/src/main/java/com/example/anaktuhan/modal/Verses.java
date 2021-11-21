@@ -6,7 +6,7 @@ public class Verses {
     private String verseText;
     private String title;
     
-    private int yearNum;
+    private String formattedYear;
     
     public void setVerseId(int verseId) {
         this.verseId = verseId;
@@ -25,8 +25,8 @@ public class Verses {
     }
 
 
-    public void setYearNum(int yearNum) {
-        this.yearNum = yearNum;
+    public void setFormattedYear(String formattedYear) {
+        this.formattedYear = formattedYear;
     }
 
 
@@ -58,7 +58,11 @@ public class Verses {
         }   
     }
 
-    public int getYearNum() {
-        return yearNum;
+    public String getFormattedYear() {
+        if (this.formattedYear == null) {
+            return "";
+        } else {
+            return this.formattedYear;  
+        }  
     }
 }

@@ -6,6 +6,7 @@ import java.util.ResourceBundle;
 import com.example.anaktuhan.database.Database;
 import com.example.anaktuhan.modal.Verses;
 
+import javafx.beans.property.IntegerProperty;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
@@ -38,16 +39,11 @@ public class FXMLController implements Initializable {
     private TableColumn<Verses, String> eventsCol;
 
     @FXML
-    private TableColumn<Verses, Integer> periodsCol;
+    private TableColumn<Verses, String> periodsCol;
+
 
     @FXML
-    private TextField fieldTime;
-
-    @FXML
-    private Button timeBut;
-
-    @FXML
-    private TextField fieldEvent;
+    private TextField fieldSearch;
 
     @FXML
     private Button eventBut;
@@ -64,12 +60,12 @@ public class FXMLController implements Initializable {
         verseCol.setCellValueFactory(new PropertyValueFactory<Verses, String>("verse"));
         verseTextCol.setCellValueFactory(new PropertyValueFactory<Verses, String>("verseText"));
         eventsCol.setCellValueFactory(new PropertyValueFactory<Verses, String>("title"));
-        periodsCol.setCellValueFactory(new PropertyValueFactory<Verses, Integer>("yearNum"));
+        periodsCol.setCellValueFactory(new PropertyValueFactory<Verses, String>("formattedYear"));
         tableVerses.setItems(verses);
 
         FilteredList<Verses> filteredData= new FilteredList<>(verses,searching->true);
 
-        fieldEvent.textProperty().addListener((Observable, oldValue, newValue) -> {
+        fieldSearch.textProperty().addListener((Observable, oldValue, newValue) -> {
                 filteredData.setPredicate(verse -> {
                     if (newValue == null || newValue.isEmpty()) {
                         return true;            
@@ -84,9 +80,20 @@ public class FXMLController implements Initializable {
                     if(verse.getVerse().toLowerCase().indexOf(lowerCase)!=-1){
                         return true; 
                     }
+                    if(verse.getFormattedYear().toLowerCase().indexOf(lowerCase) != -1){
+                        return true; 
+                    }
                     else{
                         return false;
                     }
+
+                    // Integer lowerCaseInteger = newValue.toInteger();
+                    // if (verse.getYearNum().indexOf(lowerCaseInteger) != null ) {
+                    //     return true; 
+                    // }
+                    // else{
+                    //     return false;
+                    // }
                 });
             });  
 
@@ -95,27 +102,6 @@ public class FXMLController implements Initializable {
         tableVerses.setItems(sortingData);
 
         }
-
-        // fieldTime.textProperty().addListener((Observable, oldValue, newValue) -> {
-        //     filteredData.setPredicate(verse -> {
-        //         if (newValue == 1 || newValue.isEmpty()) {
-        //             return true;            
-        //         }
-        //         Integer value = newValue();
-        //         if(verse.getYearNum().toLowerCase().indexOf(lowerCase)!=-1){
-        //             return true; 
-        //         }
-        //         else{
-        //             return false;
-        //         }
-        //     });
-        // });  
-
-        // SortedList<Verses> sortingData = new SortedList<>(filteredData);
-        // sortingData.comparatorProperty().bind(tableVerses.comparatorProperty());
-        // tableVerses.setItems(sortingData);
-
-        // }   
-}
+    }
 
 //reference : https://code.makery.ch/blog/javafx-8-tableview-sorting-filtering/

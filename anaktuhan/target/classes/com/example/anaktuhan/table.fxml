@@ -25,7 +25,7 @@
          </font>
       </Text>
       <Text layoutX="14.0" layoutY="207.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pencarian" />
-      <TextField fx:id="fieldEvent" layoutX="76.0" layoutY="191.0" promptText="Cari" />
+      <TextField fx:id="fieldSearch" layoutX="76.0" layoutY="191.0" promptText="Cari" />
       <Button fx:id="eventBut" layoutX="236.0" layoutY="191.0" mnemonicParsing="false" onAction="#submit" text="Cari" />
    </children>
 </AnchorPane>

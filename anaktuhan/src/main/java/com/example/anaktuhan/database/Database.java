@@ -13,7 +13,7 @@ import javafx.collections.ObservableList;
 public class Database {
 
     final private String url ="jdbc:sqlite:vizbible.sqlite";
-    final private String querySelect = "SELECT verses.verseId, verses.osisRef, verses.verseText, events.title, verses.yearNum FROM verses LEFT JOIN events ON verses.verseID = events.verseSort";
+    final private String querySelect = "SELECT verses.verseId, verses.osisRef, verses.verseText, events.title, periods.formattedYear FROM verses LEFT JOIN events ON verses.verseID = events.verseSort LEFT JOIN Periods ON verses.yearNum = Periods.yearNum";
     private Connection connection = null;
     public static Database instance = new Database();
 
@@ -37,7 +37,7 @@ public class Database {
                 verse.setVerse(result.getString("osisRef"));
                 verse.setVerseText(result.getString("verseText"));
                 verse.setTitle(result.getString("title"));
-                verse.setYearNum(result.getInt("yearNum"));
+                verse.setFormattedYear(result.getString("formattedYear"));
                 verses.add(verse);
             }
         } catch (Exception e) {
