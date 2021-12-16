@@ -30,7 +30,7 @@ public class FXMLController2 implements Initializable {
         ObservableList<Periods> periods = Database.instance.getAllPeriods();
         XYChart.Series<String, String> series = new XYChart.Series<>();
         series.setName("TIMELINE");
-        series.getData().add(new XYChart.Data<>())
+        series.getData().add(new XYChart.Data<>());
 
         BarChart.getData().add(series);
  
