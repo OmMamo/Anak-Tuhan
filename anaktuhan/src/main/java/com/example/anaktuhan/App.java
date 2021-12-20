@@ -19,6 +19,7 @@ public class App extends Application
         Parent root = FXMLLoader.load(getClass().getResource("table.fxml"));
 
         Scene scene = new Scene(root);
+        scene.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
 
         stage.setTitle("Waktu Suci");
         stage.setScene(scene);

@@ -2,7 +2,7 @@ module anaktuhan {
     requires javafx.controls;
     requires javafx.fxml;
     requires transitive javafx.graphics;
-    requires java.sql;
+    requires transitive java.sql;
     requires sqlite.jdbc;
 
     opens com.example.anaktuhan to javafx.fxml;

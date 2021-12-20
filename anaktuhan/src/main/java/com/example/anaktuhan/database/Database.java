@@ -68,4 +68,40 @@ public class Database {
     public Connection opeConnection(Database Database){
         return Database.connection;
     }
+
+    // public static ArrayList searchUtama(String search){
+    //     String query = "SELECT osisRef, verseText FROM verses WHERE eventsDescribed LIKE '%"+search+"%' OR timeline LIKE '%"+search+"%'";
+    //     // System.out.println(query);
+    //     ArrayList<Verses> hasil = new ArrayList<Verses>();
+    //     try {
+    //         Statement statement = connection.createStatement();
+    //         ResultSet result = statement.executeQuery(query);
+
+    //         while(result.next()){
+    //             hasil.add(new Verses(result.getString("osisRef"), result.getString("verseText")));
+    //         }
+    //         return hasil;
+    //     } catch (Exception e) {
+    //         System.out.println(e.getMessage());
+    //         return hasil;
+    //     } 
+    // }
+
+    // public ArrayList searchUtama(Integer search){
+    //     String query = "SELECT osisRef, verseText FROM verses WHERE yearNum LIKE '%"+search+"%'";
+    //     // System.out.println(query);
+    //     ArrayList<Verses> hasil = new ArrayList<Verses>();
+    //     try {
+    //         Statement statement = connection.createStatement();
+    //         boolean result = statement.execute(query);
+
+    //         while(result.next()){
+    //             hasil.add(new Verses(result.getString("osisRef"), result.getString("verseText")));
+    //         }
+    //         return hasil;
+    //     } catch (Exception e) {
+    //         System.out.println(e.getMessage());
+    //         return hasil;
+    //     } 
+    // }
 }
