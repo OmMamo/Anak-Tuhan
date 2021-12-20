@@ -3,7 +3,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import com.example.anaktuhan.database.Database;
-import com.example.anaktuhan.modal.Periods;
+import com.example.anaktuhan.modal.Events;
 
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -17,7 +17,7 @@ import javafx.scene.chart.XYChart;
 public class FXMLController2 implements Initializable {
     
     @FXML
-    private BarChart<String, String> BarChart;
+    private BarChart<String, Integer> BarChart;
 
     @FXML
     private CategoryAxis y;
@@ -27,12 +27,33 @@ public class FXMLController2 implements Initializable {
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1)  {
-        ObservableList<Periods> periods = Database.instance.getAllPeriods();
-        XYChart.Series<String, String> series = new XYChart.Series<>();
-        series.setName("TIMELINE");
-        series.getData().add(new XYChart.Data<>());
+        ObservableList<Events> events = Database.instance.getAllEvents();
+        XYChart.Series<String, Integer> dataChart = new XYChart.Series();
+        dataChart.setName("TIMELINE");
+       
+        //dataChart.getData().add(new XYChart.Data<String, String>(Periods.getEvents(), Periods.getFormattedYear()));
 
-        BarChart.getData().add(series);
+      /*   dataChart.getData().add(new XYChart.Data("Creation of All The Things", 4004));
+        dataChart.getData().add(new XYChart.Data("Creation", 4003));
+
+        BarChart.getData().add(dataChart); */
+        
+        for (Events ev : events) {
+            if (ev.getStartDate() == 0){
+                continue;
+            } else{
+                dataChart.getData().add(new XYChart.Data(ev.getTitle(), Math.abs(ev.getStartDate())));
+                System.out.println(Math.abs(ev.getStartDate()));
+                System.out.println(ev.getTitle());
+            }
+            
+            
+        }
+
+        BarChart.getData().addAll(dataChart);
+        // for (XYChart.Series<String, String> hoover : BarChart.getData()) {
+        //     if (item.get)
+        // }
  
     }
 
