@@ -7,7 +7,7 @@ import java.util.Stack;
 
 import com.example.anaktuhan.database.Database;
 import com.example.anaktuhan.modal.Verses;
-import com.example.anaktuhan.modal.Periods;
+import com.example.anaktuhan.modal.Events;
 
 
 import javafx.beans.property.IntegerProperty;
